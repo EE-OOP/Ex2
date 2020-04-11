@@ -1,10 +1,6 @@
-public class RealScalar implements Scalar {
+public class RealScalar extends AbstractScalar {
 
     private double v;
-
-    public boolean isMatch(Scalar s) {
-        return accept(s);
-    }
 
     public Scalar add(Scalar s) {
         return null;

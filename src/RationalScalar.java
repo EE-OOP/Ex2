@@ -1,12 +1,7 @@
-public class RationalScalar implements Scalar {
+public class RationalScalar extends AbstractScalar {
 
     private int a;
     private int b;
-
-
-    public boolean isMatch(Scalar s) {
-        return accept(s);
-    }
 
     public Scalar add(Scalar s) {
         return null;
