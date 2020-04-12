@@ -4,33 +4,33 @@ import ScalarPackage.*;
 
 public class MultiplierVisitor implements Visitor {
 
-    protected Scalar result;
+    protected Scalar product;
 
-    public Scalar getResult() {
-        return result;
+    public Scalar getProduct() {
+        return product;
     }
 
-    protected void setResult(Scalar result) {
-        this.result = result;
+    protected void setProduct(Scalar product) {
+        this.product = product;
     }
 
     @Override
     public void visit(RealScalar realS1, RealScalar realS2) {
-        setResult(new RealScalar(realS1.getV() * realS2.getV()));
+        setProduct(new RealScalar(realS1.getValue() * realS2.getValue()));
     }
 
     @Override
     public void visit(RealScalar realS, RationalScalar rationalS) {
-        setResult(null);
+        setProduct(null);
     }
 
     @Override
     public void visit(RationalScalar rationalS, RealScalar realS) {
-        setResult(null);
+        setProduct(null);
     }
 
     @Override
     public void visit(RationalScalar rationalS1, RationalScalar rationalS2) {
-        setResult(new RationalScalar(rationalS1.getA() * rationalS2.getA(), rationalS1.getB() * rationalS2.getB()));
+        setProduct(new RationalScalar(rationalS1.getNumerator() * rationalS2.getNumerator(), rationalS1.getDenominator() * rationalS2.getDenominator()));
     }
 }

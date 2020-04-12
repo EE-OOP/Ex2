@@ -4,33 +4,33 @@ import ScalarPackage.*;
 
 public class AdderVisitor implements Visitor {
 
-    Scalar result;
+    Scalar sum;
 
     @Override
     public void visit(RealScalar realS1, RealScalar realS2) {
-        setResult(new RealScalar(realS1.getV() + realS2.getV()));
+        setSum(new RealScalar(realS1.getValue() + realS2.getValue()));
     }
 
     @Override
     public void visit(RealScalar realS, RationalScalar rationalS) {
-        setResult(null);
+        setSum(null);
     }
 
     @Override
     public void visit(RationalScalar rationalS, RealScalar realS) {
-        setResult(null);
+        setSum(null);
     }
 
     @Override
     public void visit(RationalScalar rationalS1, RationalScalar rationalS2) {
-        setResult(new RationalScalar((rationalS1.getA() * rationalS2.getB()) + (rationalS2.getA() * rationalS1.getB()), rationalS1.getB() * rationalS2.getB()));
+        setSum(new RationalScalar((rationalS1.getNumerator() * rationalS2.getDenominator()) + (rationalS2.getNumerator() * rationalS1.getDenominator()), rationalS1.getDenominator() * rationalS2.getDenominator()));
     }
 
-    public Scalar getResult() {
-        return result;
+    public Scalar getSum() {
+        return sum;
     }
 
-    private void setResult(Scalar result) {
-        this.result = result;
+    private void setSum(Scalar sum) {
+        this.sum = sum;
     }
 }

@@ -16,11 +16,11 @@ public class RationalScalar implements Scalar {
 
     }
 
-    public int getA() {
+    public int getNumerator() {
         return a;
     }
 
-    public int getB() {
+    public int getDenominator() {
         return b;
     }
 
@@ -35,29 +35,29 @@ public class RationalScalar implements Scalar {
     public Scalar add(Scalar s) {
         AdderVisitor visitor = new AdderVisitor();
         s.accept(visitor, this);
-        return visitor.getResult();
+        return visitor.getSum();
     }
 
     @Override
     public Scalar mul(Scalar s) {
         MultiplierVisitor visitor = new MultiplierVisitor();
         s.accept(visitor, this);
-        return visitor.getResult();
+        return visitor.getProduct();
     }
 
     @Override
     public Scalar mul(int i) {
-        return new RationalScalar(getA() * i, getB());
+        return new RationalScalar(getNumerator() * i, getDenominator());
     }
 
     @Override
     public Scalar power(int exp) {
-        return new RationalScalar((int) Math.pow(getA(), exp), (int) Math.pow(getB(), exp));
+        return new RationalScalar((int) Math.pow(getNumerator(), exp), (int) Math.pow(getDenominator(), exp));
     }
 
     @Override
     public int sign() {
-        return (int) Math.signum(getA() * getB());
+        return (int) Math.signum(getNumerator() * getDenominator());
     }
 
     @Override
@@ -78,7 +78,5 @@ public class RationalScalar implements Scalar {
             return "(-" + Math.abs(a) + "/" + Math.abs(b) + ")";
 
         return "(" + Math.abs(a) + "/" + Math.abs(b) + ")";
-
-
     }
 }

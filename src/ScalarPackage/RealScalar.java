@@ -27,19 +27,19 @@ public class RealScalar implements Scalar {
     public Scalar add(Scalar s) {
         AdderVisitor visitor = new AdderVisitor();
         s.accept(visitor,this);
-        return visitor.getResult();
+        return visitor.getSum();
     }
 
     @Override
     public Scalar mul(Scalar s) {
         MultiplierVisitor visitor = new MultiplierVisitor();
         s.accept(visitor,this);
-        return visitor.getResult();
+        return visitor.getProduct();
     }
 
     @Override
     public Scalar mul(int i) {
-        return new RealScalar(getV()*i);
+        return new RealScalar(getValue()*i);
     }
 
     @Override
@@ -61,13 +61,13 @@ public class RealScalar implements Scalar {
         visitor.visit(this,s);
     }
 
-    public double getV() {
+    public double getValue() {
         return v;
     }
 
     @Override
     public String toString() {
         DecimalFormat threeAfterDot = new DecimalFormat("#.###");
-        return threeAfterDot.format(getV());
+        return threeAfterDot.format(getValue());
     }
 }
