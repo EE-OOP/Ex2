@@ -15,23 +15,23 @@ public class RealScalar implements Scalar {
 
     @Override
     public boolean isMatch(Scalar s) {
-        MatcherVisitor v = new MatcherVisitor();
-        s.accept(v,this);
-        return v.isMatch();
+        MatcherVisitor visitor = new MatcherVisitor();
+        s.accept(visitor,this);
+        return visitor.isMatch();
     }
 
     @Override
     public Scalar add(Scalar s) {
-        AdderVisitor v = new AdderVisitor();
-        s.accept(v,this);
-        return v.getResult();
+        AdderVisitor visitor = new AdderVisitor();
+        s.accept(visitor,this);
+        return visitor.getResult();
     }
 
     @Override
     public Scalar mul(Scalar s) {
-        MultiplierVisitor v = new MultiplierVisitor();
-        s.accept(v,this);
-        return v.getResult();
+        MultiplierVisitor visitor = new MultiplierVisitor();
+        s.accept(visitor,this);
+        return visitor.getResult();
     }
 
     @Override
@@ -50,12 +50,12 @@ public class RealScalar implements Scalar {
     }
 
     @Override
-    public void accept(Visitor v, RealScalar s) {
-        v.visit(this,s);
+    public void accept(Visitor visitor, RealScalar s) {
+        visitor.visit(this,s);
     }
 
-    public void accept(Visitor v, RationalScalar s) {
-        v.visit(this,s);
+    public void accept(Visitor visitor, RationalScalar s) {
+        visitor.visit(this,s);
     }
 
     public double getV() {

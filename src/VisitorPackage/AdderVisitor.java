@@ -1,13 +1,14 @@
 package VisitorPackage;
 
 import ScalarPackage.*;
+
 public class AdderVisitor implements Visitor {
 
     Scalar result;
 
     @Override
     public void visit(RealScalar realS1, RealScalar realS2) {
-         setResult(new RealScalar(realS1.getV()+realS2.getV()));
+        setResult(new RealScalar(realS1.getV() + realS2.getV()));
     }
 
     @Override
@@ -22,7 +23,7 @@ public class AdderVisitor implements Visitor {
 
     @Override
     public void visit(RationalScalar rationalS1, RationalScalar rationalS2) {
-        setResult(new RationalScalar((rationalS1.getA()*rationalS2.getB()) + (rationalS2.getA()*rationalS1.getB()),rationalS1.getB()*rationalS2.getB()));
+        setResult(new RationalScalar((rationalS1.getA() * rationalS2.getB()) + (rationalS2.getA() * rationalS1.getB()), rationalS1.getB() * rationalS2.getB()));
     }
 
     public Scalar getResult() {

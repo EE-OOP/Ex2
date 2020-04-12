@@ -1,6 +1,7 @@
 package VisitorPackage;
 
 import ScalarPackage.*;
+
 public class MultiplierVisitor implements Visitor {
 
     protected Scalar result;
@@ -15,7 +16,7 @@ public class MultiplierVisitor implements Visitor {
 
     @Override
     public void visit(RealScalar realS1, RealScalar realS2) {
-        setResult(new RealScalar(realS1.getV()*realS2.getV()));
+        setResult(new RealScalar(realS1.getV() * realS2.getV()));
     }
 
     @Override
@@ -30,6 +31,6 @@ public class MultiplierVisitor implements Visitor {
 
     @Override
     public void visit(RationalScalar rationalS1, RationalScalar rationalS2) {
-        setResult(new RationalScalar(rationalS1.getA()*rationalS2.getA(),rationalS1.getB()*rationalS2.getB()));
+        setResult(new RationalScalar(rationalS1.getA() * rationalS2.getA(), rationalS1.getB() * rationalS2.getB()));
     }
 }
