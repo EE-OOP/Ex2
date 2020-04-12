@@ -1,3 +1,7 @@
+import ScalarPackage.RationalScalar;
+import ScalarPackage.RealScalar;
+import ScalarPackage.Scalar;
+
 public class Main {
     public static void main(String[] args) {
         Scalar s1 = new RealScalar();

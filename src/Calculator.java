@@ -12,7 +12,7 @@ public class Calculator {
         System.out.println("[" + p1 + "]*[" + p2 + "]=" + res);
     }
 
-    public static void printEval(Polynomial p, Scalar s, Scalar res) {
+    public static void printEval(Polynomial p, ScalarPackage.Scalar s, ScalarPackage.Scalar res) {
         System.out.println("eval(" + p + "," + s + ")=" + res);
     }
 
@@ -68,12 +68,12 @@ public class Calculator {
 
         //Evaluate Tests
         printTitle("Testing Evaluate");
-        RealScalar r = new RealScalar(1);
+        ScalarPackage.RealScalar r = new ScalarPackage.RealScalar(1);
         printEval(R1, r, R1.evaluate(r));
         printEval(R2, r, R2.evaluate(r));
         printEval(R3, r, R3.evaluate(r));
         printEval(R4, r, R4.evaluate(r));
-        RationalScalar q = new RationalScalar(1);
+        ScalarPackage.RationalScalar q = new ScalarPackage.RationalScalar(1);
         printEval(Q1, q, Q1.evaluate(q));
         printEval(Q2, q, Q2.evaluate(q));
         printEval(Q3, q, Q3.evaluate(q));
