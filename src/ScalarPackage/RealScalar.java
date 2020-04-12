@@ -1,6 +1,9 @@
 package ScalarPackage;
 
 import VisitorPackage.*;
+
+import java.text.DecimalFormat;
+
 public class RealScalar implements Scalar {
 
     private double v;
@@ -60,5 +63,11 @@ public class RealScalar implements Scalar {
 
     public double getV() {
         return v;
+    }
+
+    @Override
+    public String toString() {
+        DecimalFormat threeAfterDot = new DecimalFormat("#.###");
+        return threeAfterDot.format(getV());
     }
 }
