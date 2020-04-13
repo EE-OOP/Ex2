@@ -13,7 +13,16 @@ public class RationalScalar implements Scalar {
     public RationalScalar(int a, int b) {
         this.a = a;
         this.b = b;
+    }
 
+    public RationalScalar(int num) {
+        this.a = num;
+        this.b = 1;
+    }
+
+    @Override
+    public Scalar clone() {
+        return new RationalScalar(a,b);
     }
 
     public int getNumerator() {

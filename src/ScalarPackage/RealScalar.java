@@ -17,6 +17,11 @@ public class RealScalar implements Scalar {
     }
 
     @Override
+    public Scalar clone() {
+        return new RealScalar(v);
+    }
+
+    @Override
     public boolean isMatch(Scalar s) {
         MatcherVisitor visitor = new MatcherVisitor();
         s.accept(visitor,this);
