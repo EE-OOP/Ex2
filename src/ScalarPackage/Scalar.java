@@ -11,5 +11,5 @@ public interface Scalar {
     int sign();
     void accept(Visitor v, RealScalar s);
     void accept(Visitor v, RationalScalar s);
-
+    Scalar clone ();
 }

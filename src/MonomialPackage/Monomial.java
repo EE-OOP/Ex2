@@ -11,6 +11,14 @@ public class Monomial {
         this.exp = exp;
     }
 
+    public Scalar getCoefficient() {
+        return coe;
+    }
+
+    public int getExp() {
+        return exp;
+    }
+
     public boolean isMatch (Monomial m) {
         return coe.isMatch(m.coe);
     }
@@ -39,9 +47,7 @@ public class Monomial {
     }
 
     public Monomial derivative() {
-        coe = this.coe.mul(exp);
-        exp--;
-        return this;
+        return new Monomial(this.coe.mul(exp), exp-1);
     }
 
     public int sign() {
@@ -49,14 +55,9 @@ public class Monomial {
     }
 
     public String toString() {
-        if (coe.toString().equals("1") & exp>1)
-            return "x";
-        else if (coe.toString().equals("-1") & exp>1)
-            return "-x";
-        else if (exp==1)
-        return coe + "x^" + exp;
-
         switch(coe.toString()) {
+            case"0":
+                return "0";
             case "1":
                 if (exp==1)
                     return "x";
