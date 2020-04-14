@@ -6,6 +6,7 @@ public class MatcherVisitor implements Visitor {
 
     private boolean isMatch;
 
+    //In case the Scalars are of the same type, they are matching, otherwise they are not
     @Override
     public void visit(RealScalar realS1, RealScalar realS2) {
         isMatch = true;

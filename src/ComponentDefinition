@@ -1,0 +1,47 @@
+Scalar: The core of every monomial and polynomial. It is used as every monomial's coefficient and in the evaluation of each.
+The required operations of this component consist mainly of addition, multiplication, the determination of its sign and raising to the power of an exponent, but are not limited to only that.
+The component also provides a means of differentiating between different types that may implement it.
+To that end and to widen the scope of its usability, the component integrates the visitor pattern, as well as a clone method, to eliminate the necessity of casting or instanceof usage.
+
+RealScalar: This class implements the Scalar interface and as such, provides all of its promised functionality.
+Provides its distinct functionality, as compared to other classes which may implement the same interface, in its representation of real numbers, specifically up to the third decimal point.
+Contains a 'double' field and will round the value given to its constructor appropriately.
+The RealScalar overrides the Object method 'toString', to represent itself in a comprehensive fashion.
+
+RationalScalar: This class implements the Scalar interface and as such, provides all of its promised functionality.
+Provides its distinct functionality, as compared to other classes which may implement the same interface, in its representation of rational numbers.
+Contains 2 'int' type fields, each representing the numerator and the denominator as rational numbers are usually portrayed.
+The RationalScalar overrides the Object method 'toString', to represent itself in a comprehensive fashion.
+
+Monomial: The Monomial extends, in essence, the functionality of the Scalar, but also depends on it heavily.
+It contains 2 fields, a 'Scalar' coefficient and an 'int' exponent.
+The Monomial is the foundation on which any Polynomial is built upon, and as such is a core part of its functionality.
+The Monomial class provides methods to allow addition and multiplication, somewhat reminiscent of its coefficient Scalar.
+In addition, akin to the Scalar, the Monomial provides a means to ensure calculations are only computed if and only if their coefficients are of the same type.
+As is expected of monomials, the Monomial class provides the ability to produce its derivative and to allow its evaluation given a provided Scalar.
+The Monomial overrides the Object method 'toString', to represent itself in a comprehensive fashion.
+
+Polynomial: The Polynomial class provides functionality that is normally associated with polynomials.
+Those include the addition and multiplication of different Polynomials, as well as their respective derivatives and evaluations.
+The Polynomial class is built out of a collection of Monomials and as such contains an appropriate field to signify so.
+The class comes with a build function which allows the determination of the desired Polynomial's type and portrayal of its monomials given a string input.
+The Polynomial overrides the Object method 'toString', to represent itself in a comprehensive fashion.\
+
+PolynomialInterpreter: Built to work hand-in-hand with the 'build' function of the Polynomial class.
+Allows interpretation of the given string input into a Monomial Collection in a manner the Polynomial will be able to handle.
+
+RealPolynomialInterpreter: An implementation of the PolynomialInterpreter designed to provide service to Polynomials that are to be built as Real types.
+To that end the class also implements an 'extractCoefficient' method to assist it in its endeavor.
+
+RationalPolynomialInterpreter: An implementation of the PolynomialInterpreter designed to provide service to Polynomials that are to be built as Rational types.
+To that end the class also implements an 'extractCoefficient' method to assist it in its endeavor.
+
+Visitor: In object-oriented programming and software engineering, the visitor design pattern is a way of separating an algorithm from an object structure on which it operates.
+A practical result of this separation is the ability to add new operations to existing object structures without modifying the structures.
+In this project, the Visitor interface allows differentiating between the different types of Scalars that may implement the Scalar interface.
+
+MatcherVisitor: This class implements the Visitor interface and its purpose is to allow the matching of different Scalars and produce an output accordingly.
+
+AdderVisitor: This class implements the Visitor interface and its purpose is to allow or disallow the addition of different Scalars.
+
+MultiplierVisitor: This class implements the Visitor interface and its purpose is to allow or disallow the multiplication of different scalars.

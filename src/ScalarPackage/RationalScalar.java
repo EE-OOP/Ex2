@@ -15,13 +15,13 @@ public class RationalScalar implements Scalar {
         this.b = b;
     }
 
-    public RationalScalar(int num) {
+    public RationalScalar(int num) { //if input is an integer, sets the denominator to 1
         this.a = num;
         this.b = 1;
     }
 
     @Override
-    public Scalar clone() {
+    public Scalar clone() { //Generates an exact copy of 'this'
         return new RationalScalar(a,b);
     }
 
@@ -34,21 +34,21 @@ public class RationalScalar implements Scalar {
     }
 
     @Override
-    public boolean isMatch(Scalar s) {
+    public boolean isMatch(Scalar s) { //Uses the visitor pattern to check Scalar type compatibility
         MatcherVisitor visitor = new MatcherVisitor();
         s.accept(visitor, this);
         return visitor.isMatch();
     }
 
     @Override
-    public Scalar add(Scalar s) {
+    public Scalar add(Scalar s) { //Uses the visitor pattern to ensure compatibility and produce the desired sum
         AdderVisitor visitor = new AdderVisitor();
         s.accept(visitor, this);
         return visitor.getSum();
     }
 
     @Override
-    public Scalar mul(Scalar s) {
+    public Scalar mul(Scalar s) { //Uses the visitor pattern to ensure compatibility and produce the desired product
         MultiplierVisitor visitor = new MultiplierVisitor();
         s.accept(visitor, this);
         return visitor.getProduct();
@@ -70,12 +70,12 @@ public class RationalScalar implements Scalar {
     }
 
     @Override
-    public void accept(Visitor visitor, RealScalar s) {
+    public void accept(Visitor visitor, RealScalar s) { //Function to allow the visitor to behave appropriately
         visitor.visit(this, s);
     }
 
     @Override
-    public void accept(Visitor visitor, RationalScalar s) {
+    public void accept(Visitor visitor, RationalScalar s) { //Function to allow the visitor to behave appropriately
         visitor.visit(this, s);
     }
 

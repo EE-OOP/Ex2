@@ -6,6 +6,7 @@ public class AdderVisitor implements Visitor {
 
     private Scalar sum;
 
+    //Performs the addition operation on two scalars if they are of the same type
     @Override
     public void visit(RealScalar realS1, RealScalar realS2) {
         setSum(new RealScalar(realS1.getValue() + realS2.getValue()));

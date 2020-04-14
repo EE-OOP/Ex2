@@ -83,10 +83,10 @@ public class Calculator {
         printEval(Q5, q, Q5.evaluate(q));
 
         //Derivate Tests
-//        printTitle("Testing derivative");
-//        printDerivate(R1, R1.derivative());
-//        printDerivate(R2, R2.derivative());
-//        printDerivate(R3, R3.derivative());
+        printTitle("Testing derivative");
+        printDerivate(R1, R1.derivative());
+        printDerivate(R2, R2.derivative());
+        printDerivate(R3, R3.derivative());
         printDerivate(R4, R4.derivative());
         printDerivate(Q1, Q1.derivative());
         printDerivate(Q2, Q2.derivative());

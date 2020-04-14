@@ -19,11 +19,11 @@ public class Monomial {
         return exp;
     }
 
-    public boolean isMatch (Monomial m) {
+    public boolean isMatch (Monomial m) { //Checks if both Monomials' coefficients are of a matching type
         return coe.isMatch(m.coe);
     }
 
-    public boolean canAdd (Monomial m) {
+    public boolean canAdd (Monomial m) { //Checks matching coefficients and identical exponent values
         return m.isMatch(this) & this.exp == m.exp;
     }
 
@@ -54,25 +54,26 @@ public class Monomial {
         return coe.sign();
     }
 
+    @Override
     public String toString() {
         switch(coe.toString()) {
-            case"0":
+            case"0": //In case the coefficient is 0 returns 0 regardless of other parameters
                 return "0";
-            case "1":
-                if (exp==1)
+            case "1": //In case the coefficient is 1, omit it from the final expression
+                if (exp==1) //If the exponent is 1, omit it from the final expression
                     return "x";
-                else if(exp>0)
+                else if(exp>0) //If the exponent is larger than, 1 provide the full expression
                     return "x^" + exp;
                 else
-                    return "1";
-            case "-1":
+                    return "1"; //Else the exponent = 0 - return the coefficient
+            case "-1": //In case the coefficient is -1, omit it from the final expression but leave its sign
                 if (exp==1)
                     return "-x";
                 else if (exp>0)
                     return "-x^" + exp;
                 else
                     return "-1";
-            default:
+            default: //In case the coefficient is >|1| provides the complete expression
                 if (exp==1)
                     return coe + "x";
                 else if (exp==0)
