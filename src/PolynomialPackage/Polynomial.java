@@ -31,9 +31,7 @@ public class Polynomial {
     }
 
     public boolean isMatch (Polynomial p) {
-        if (this.getType() == p.getType())
-            return true;
-        return false;
+        return this.getType() == p.getType();
     }
 
     public Polynomial add (Polynomial p) {
