@@ -1,9 +1,10 @@
 package InterpeterPackage;
 
-        import PolynomialPackage.Monomial;
+import PolynomialPackage.Monomial;
         import java.util.ArrayList;
+import java.util.Vector;
 
 
 public interface PolynomialInterpreter {
-   ArrayList<Monomial> monomialInterpreter(String input);
+    Vector<Monomial> monomialInterpreter(String input);
 }

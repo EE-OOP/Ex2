@@ -4,12 +4,13 @@ import PolynomialPackage.Monomial;
 import ScalarPackage.RealScalar;
 
 import java.util.ArrayList;
+import java.util.Vector;
 
 public class RealPolynomialInterpreter implements PolynomialInterpreter {
 
     @Override
-    public ArrayList<Monomial> monomialInterpreter(String input) {
-        ArrayList<Monomial> monomials = new ArrayList<>();
+    public Vector<Monomial> monomialInterpreter(String input) {
+        Vector<Monomial> monomials = new Vector<>();
         int exp = 0;
         while(!input.isEmpty()){
             if(input.charAt(0) == ' ')

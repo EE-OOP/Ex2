@@ -4,7 +4,7 @@ import ScalarPackage.*;
 
 public class AdderVisitor implements Visitor {
 
-    Scalar sum;
+    private Scalar sum;
 
     @Override
     public void visit(RealScalar realS1, RealScalar realS2) {

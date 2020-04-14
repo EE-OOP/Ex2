@@ -12,6 +12,26 @@ public class Polynomial {
 
     public Polynomial() { }
 
+
+
+    private Collection<Monomial> getMonomials() {
+        return monomials;
+    }
+
+    private void setMonomials(Collection<Monomial> monomials) {
+        this.monomials = monomials;
+    }
+
+    private char getType() {
+        for (Monomial monomial : monomials) {
+            if (monomial.getCoefficient().isMatch(new RealScalar()))
+                return 'R';
+            else
+                break;
+        }
+        return 'Q';
+    }
+
     public Polynomial build (char type, String input) {
         PolynomialInterpreter interpreter;
         if (type == 'R') {
@@ -20,14 +40,6 @@ public class Polynomial {
             interpreter = new RationalPolynomialInterpreter(); }
         monomials = interpreter.monomialInterpreter(input);
         return this;
-    }
-
-    private Collection<Monomial> getMonomials() {
-        return monomials;
-    }
-
-    private void setMonomials(Collection<Monomial> monomials) {
-        this.monomials = monomials;
     }
 
     public boolean isMatch (Polynomial p) {
@@ -102,15 +114,7 @@ public class Polynomial {
         return derivate;
     }
 
-    private char getType() {
-        for (Monomial monomial : monomials) {
-            if (monomial.getCoefficient().isMatch(new RealScalar()))
-                return 'R';
-            else
-                break;
-        }
-        return 'Q';
-    }
+
 
     @Override
     public String toString() {

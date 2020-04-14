@@ -4,13 +4,13 @@ import ScalarPackage.*;
 
 public class MultiplierVisitor implements Visitor {
 
-    protected Scalar product;
+    private Scalar product;
 
     public Scalar getProduct() {
         return product;
     }
 
-    protected void setProduct(Scalar product) {
+    private void setProduct(Scalar product) {
         this.product = product;
     }
 
