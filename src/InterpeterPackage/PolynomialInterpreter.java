@@ -1,6 +1,6 @@
 package InterpeterPackage;
 
-        import MonomialPackage.Monomial;
+        import PolynomialPackage.Monomial;
         import java.util.ArrayList;
 
 

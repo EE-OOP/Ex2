@@ -1,11 +1,10 @@
 package InterpeterPackage;
 
-import MonomialPackage.Monomial;
+import PolynomialPackage.Monomial;
 import ScalarPackage.RationalScalar;
 
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class RationalPolynomialInterpeter implements PolynomialInterpeter {
 

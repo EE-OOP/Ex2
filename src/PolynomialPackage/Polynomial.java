@@ -1,7 +1,6 @@
 package PolynomialPackage;
 
 import InterpeterPackage.*;
-import MonomialPackage.Monomial;
 import ScalarPackage.*;
 
 import java.util.Collection;
@@ -109,6 +108,8 @@ public class Polynomial {
         for (Monomial monomial : monomials) {
             if (monomial.getCoefficient().isMatch(new RealScalar()))
                 return 'R';
+            else
+                break;
         }
         return 'Q';
     }

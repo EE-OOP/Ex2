@@ -1,4 +1,4 @@
-package MonomialPackage;
+package PolynomialPackage;
 
 import ScalarPackage.Scalar;
 

@@ -1,12 +1,9 @@
 package InterpeterPackage;
 
-import MonomialPackage.Monomial;
+import PolynomialPackage.Monomial;
 import ScalarPackage.RealScalar;
-import ScalarPackage.Scalar;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Queue;
 
 public class RealPolynomialInterpeter implements PolynomialInterpeter {
 
